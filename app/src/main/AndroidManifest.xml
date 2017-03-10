@@ -2,19 +2,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zgy.parking.indoor">
 
+    <!--group:android.permission-group.CAMERA-->
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.hardware.camera.autofocus"/>
+
+    <!--group:android.permission-group.STORAGE-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+
+
     <application
+        android:name="com.zgy.parking.indoor.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!--这里是蜂鸟地图的秘钥-->
+        <meta-data
+            android:name="com.fengmap.mapapi.appkey"
+            android:value="2b35f476dff2c415e530cb3ca3bb9b30"/>
+
+
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.PhotoRecordActivity" />
+        <activity android:name=".activity.ParkingFindCarActivity" />
+        <activity android:name=".activity.SearchFMapActivity" />
+        <activity android:name=".activity.ShowFMapActivity" />
     </application>
 
 </manifest>
